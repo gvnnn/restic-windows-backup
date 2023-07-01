@@ -11,6 +11,9 @@ $InternetTestAttempts = 10
 $GlobalRetryAttempts = 4
 $IgnoreMissingBackupSources = $false
 $AdditionalBackupParameters = @("--exclude-if-present", ".nobackup")
+$TaskTrigger = @{
+    AtLogOn = $true
+}
 
 # maintenance configuration
 $SnapshotMaintenanceEnabled = $true
