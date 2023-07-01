@@ -19,7 +19,7 @@ if(-not (Test-Path $ResticExe)) {
 
 # Invoke restic self-update to check for a newer version
 if ($SelfUpdate) {
-& $ResticExe self-update
+    & $ResticExe self-update
 }
 
 # Create log directory if it doesn't exit
@@ -41,12 +41,12 @@ if ($? -and $UseExistingRepo) {
 
 # Initialize the restic repository
 if (-not $skipRepoCreation) {
-& $ResticExe --verbose init
-if($?) {
-    Write-Output "[[Init]] Repository successfully initialized."
-}
-else {
-    Write-Warning "[[Init]] Repository initialization failed. Check errors and resolve."
+    & $ResticExe --verbose init
+    if($?) {
+        Write-Output "[[Init]] Repository successfully initialized."
+    }
+    else {
+        Write-Warning "[[Init]] Repository initialization failed. Check errors and resolve."
     }
 }
 
