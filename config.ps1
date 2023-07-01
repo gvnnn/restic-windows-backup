@@ -14,6 +14,7 @@ $AdditionalBackupParameters = @("--exclude-if-present", ".nobackup")
 $TaskTrigger = @{
     AtLogOn = $true
 }
+$SelfUpdate = $true
 
 # maintenance configuration
 $SnapshotMaintenanceEnabled = $true

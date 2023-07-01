@@ -18,7 +18,9 @@ if(-not (Test-Path $ResticExe)) {
 }
 
 # Invoke restic self-update to check for a newer version
+if ($SelfUpdate) {
 & $ResticExe self-update
+}
 
 # Create log directory if it doesn't exit
 if(-not (Test-Path $LogPath)) {
