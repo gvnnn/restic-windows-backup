@@ -15,6 +15,7 @@ $TaskTrigger = @{
     AtLogOn = $true
 }
 $SelfUpdate = $true
+$UseExistingRepo = $false
 
 # maintenance configuration
 $SnapshotMaintenanceEnabled = $true

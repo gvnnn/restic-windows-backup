@@ -33,13 +33,21 @@ if(-not (Test-Path $LocalExcludeFile)) {
     New-Item -Type File -Path $LocalExcludeFile | Out-Null
 }
 
+# Check if restic repository is already initialized
+& $ResticExe snapshots | Out-Null
+if ($? -and $UseExistingRepo) {
+    $skipRepoCreation = $true
+}
+
 # Initialize the restic repository
+if (-not $skipRepoCreation) {
 & $ResticExe --verbose init
 if($?) {
     Write-Output "[[Init]] Repository successfully initialized."
 }
 else {
     Write-Warning "[[Init]] Repository initialization failed. Check errors and resolve."
+    }
 }
 
 # Scheduled Windows Task Scheduler to run the backup
